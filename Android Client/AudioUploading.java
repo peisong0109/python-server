@@ -32,7 +32,7 @@ public class AudioUploading {
         new Thread() {
             @Override
             public void run() {
-                //子线程需要做的工作
+                //Thread
                 RequestBody requestBody = new MultipartBody.Builder()
                         .setType(MultipartBody.FORM)
                         .addFormDataPart("pro", pro)
@@ -40,10 +40,10 @@ public class AudioUploading {
                         .addFormDataPart("file", file.getName(),
                                 RequestBody.create(file, MEDIA_TYPE_WAV))
                         .build();
-                //设置为自己的ip地址
+                //Set your own ip address
                 Request request = new Request.Builder()
                         .header("Authorization", "Client-ID " + IMGUR_CLIENT_ID)
-                        .url("http://82.156.79.199:5000/upload")
+                        .url("http://82.156.79.**:5000/upload")
                         .post(requestBody)
                         .build();
                 try (Response response = client.newCall(request).execute()) {
